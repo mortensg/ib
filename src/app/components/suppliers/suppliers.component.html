@@ -41,8 +41,12 @@
                 <td>
                     {{ data.sector }}
                 </td>
-                <td (click)="deleteData(data)">
-                    Delete
+                <td>
+                    <button mat-button (click)="deleteData(data)">
+                        <mat-icon>
+                            delete
+                        </mat-icon>
+                    </button>
                 </td>  
             </tr>
         </tbody>
