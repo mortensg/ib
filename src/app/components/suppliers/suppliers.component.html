@@ -37,6 +37,10 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="['/add-supplier', element]">
+                <mat-icon>edit</mat-icon>
+                <span>edit</span>
+              </button>
               <button mat-menu-item (click)="deleteData(element)">
                 <mat-icon>delete</mat-icon>
                 <span>Delete</span>

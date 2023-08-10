@@ -1,4 +1,5 @@
 export class Supplier {
+    id: string;
     vatNumber?: number;
     name: string;
     country?: string;

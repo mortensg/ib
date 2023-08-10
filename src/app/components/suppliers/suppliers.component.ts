@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { Supplier } from 'src/app/models/suppliers.model';
-import { DataService } from 'src/app/services/data.service';
+import { selectSupplier } from 'src/app/store/suppliers/suppliers.selectors';
+import { supplierDeleted } from 'src/app/store/suppliers/suppliers.actions';
 
 @Component({
   selector: 'app-suppliers',
@@ -11,12 +12,11 @@ import { DataService } from 'src/app/services/data.service';
 export class SuppliersComponent {
   displayedColumns: string[] = ['vatNumber', 'name', 'country', 'roles', 'sector', 'actions'];
 
-  constructor(private dataService:DataService) { }
+  constructor(private store:Store) { }
 
-  data$: Observable<Supplier[]> = this.dataService.getData();
+  data$ = this.store.select(selectSupplier);
 
   deleteData(supplier:Supplier) {
-    this.dataService.deleteData(supplier);
+    this.store.dispatch(supplierDeleted({supplier}));
   }
-
 }

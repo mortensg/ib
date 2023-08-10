@@ -1,1 +1,35 @@
 <app-header title="Metrics" icon="analytics"></app-header>
+<ng-container *ngIf="suppliers$ | async as suppliers">
+ <div class="container">
+
+        <div class="text">
+            Number of suppliers:
+        </div>
+        <div class="value">
+            {{suppliers.totalSuppliers}}
+        </div>
+        <div class="text">
+            Countries of origin:
+        </div>
+        <div class="value">
+            <span *ngFor="let country of suppliers.countries">
+                {{ country }}
+            </span>
+
+    </div>
+        <div class="text">
+            Sectors:
+        </div>
+        <div class="value">
+           <span *ngFor="let sector of suppliers.sectors"> {{ sector }}</span>
+        </div>
+
+        <div class="text">
+            Roles:
+        </div>
+        <div class="value">
+            <span *ngFor="let role of suppliers.roles">{{ role }}</span>
+        </div>
+ </div>
+
+</ng-container>
