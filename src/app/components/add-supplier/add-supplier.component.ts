@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
+import { Country } from 'src/app/models/country.model';
 import { Roles, Sectors } from 'src/app/models/suppliers.model';
 import { CountriesService } from 'src/app/services/countries.service';
 import { DataService } from 'src/app/services/data.service';
@@ -14,7 +15,7 @@ import { DataService } from 'src/app/services/data.service';
 
 export class AddSupplierComponent implements OnInit {
   form: FormGroup;
-  contries$:Observable<any> = this.countryService.getAllCountries();
+  contries$:Observable<Country[]> = this.countryService.getAllCountries();
   roles: Roles[] = Object.values(Roles);
   selectedRoles: Roles[] = [];
   sectors:Sectors[] = Object.values(Sectors);
