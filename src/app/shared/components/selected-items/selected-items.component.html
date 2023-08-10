@@ -1,0 +1,15 @@
+<div class="selected-items">
+    <div class="row" *ngFor="let item of items">
+        <div class="text">
+            {{ item }}
+        </div>
+        <div class="row-actions">
+            <button mat-raised-button color="warn" (click)="remove(item)">
+                <mat-icon>
+                    delete
+                </mat-icon>
+                Delete
+            </button>
+        </div>
+    </div>
+</div>

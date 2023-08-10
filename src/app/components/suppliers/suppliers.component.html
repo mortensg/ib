@@ -1,0 +1,50 @@
+<app-header title="Suppliers" icon="person"></app-header>
+
+<a mat-stroked-button routerLink="/add-supplier">Create new</a>
+<div class="container" *ngIf="data$ | async as data">
+    <!-- TODO: move to Angular Material table for more control -->
+    <table> 
+        <thead>
+            <tr>
+                <th>    
+                    Vat Number
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Country
+                </th>
+                <th>
+                    Roles 
+                </th>
+                <th>
+                    Sector
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of data">
+                <td>
+                    {{ data.vatNumber }}
+                </td>
+                <td>
+                    {{ data.name }}
+                </td>
+                <td>
+                    {{ data.country }}
+                </td>
+                <td>
+                    {{ data.roles }}
+                </td>
+                <td>
+                    {{ data.sector }}
+                </td>
+                <td (click)="deleteData(data)">
+                    Delete
+                </td>  
+            </tr>
+        </tbody>
+    </table>
+</div>

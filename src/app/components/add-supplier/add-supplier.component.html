@@ -1,0 +1,56 @@
+<app-header [title]="form.value.name || 'Company Name'" icon="person"></app-header>
+
+<div class="content">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <label>Name</label>
+        <mat-form-field appearance="outline">
+            <input matInput formControlName="name" />
+            <mat-hint align="end" color="primary">* this field is required</mat-hint>
+        </mat-form-field>
+
+        <label>Vat number</label>
+        <mat-form-field appearance="outline">
+            <input matInput formControlName="vatNumber" type="number" />
+        </mat-form-field>
+        <label>
+            Country
+        </label>
+        <mat-form-field appearance="outline">
+            <!-- Replace with auto complete -->
+            <mat-select formControlName="country" placeholder="-Select-">
+                <mat-option>-- None --</mat-option>
+                <mat-option *ngFor="let country of contries$ | async"
+                    value="{{country.name.common}}">{{country.name.common}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <label>
+            Roles
+        </label>
+        <mat-form-field appearance="outline">
+            <mat-select formControlName="roles" placeholder="-Select-">
+                <mat-option *ngFor="let role of roles" (click)="addRole(role)">{{role}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <app-selected-items [items]="selectedRoles" (removeItem)="removeRole($event)"></app-selected-items>
+        <label>
+            Sector
+        </label>
+        <mat-form-field appearance="outline">
+            <mat-select formControlName="sector" placeholder="-Select-">
+                <mat-option *ngFor="let sector of sectors" (click)="addSector(sector)">{{sector}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <app-selected-items [items]="selectedSectors" (removeItem)="removeSector($event)"></app-selected-items>
+        <div class="actions">
+            <button mat-stroked-button type="button" routerLink="/suppliers">
+                <mat-icon>
+                    close
+                </mat-icon>
+                Cancel
+            </button>
+            <button mat-raised-button color="primary" type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
