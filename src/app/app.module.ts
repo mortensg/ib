@@ -16,6 +16,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -37,6 +40,8 @@ import { SharedModule } from './shared/shared.module';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatTableModule,
+    MatMenuModule,
     SharedModule
   ],
   providers: [],

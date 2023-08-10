@@ -9,6 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./suppliers.component.scss']
 })
 export class SuppliersComponent {
+  displayedColumns: string[] = ['vatNumber', 'name', 'country', 'roles', 'sector', 'actions'];
 
   constructor(private dataService:DataService) { }
 
