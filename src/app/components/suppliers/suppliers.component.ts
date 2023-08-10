@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { suppliers } from 'src/app/models/suppliers.model';
+import { Supplier } from 'src/app/models/suppliers.model';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -12,9 +12,9 @@ export class SuppliersComponent {
 
   constructor(private dataService:DataService) { }
 
-  data$: Observable<suppliers[]> = this.dataService.getData();
+  data$: Observable<Supplier[]> = this.dataService.getData();
 
-  deleteData(supplier:suppliers) {
+  deleteData(supplier:Supplier) {
     this.dataService.deleteData(supplier);
   }
 

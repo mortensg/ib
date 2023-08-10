@@ -1,6 +1,6 @@
-import { Roles, Sectors, suppliers } from "../models/suppliers.model";
+import { Roles, Sectors, Supplier } from "../models/suppliers.model";
 
-  export const getfakeData = (): suppliers[] => {
+  export const getfakeData = (): Supplier[] => {
     return [
         {
           vatNumber: Math.floor(Math.random() * 1000000000),

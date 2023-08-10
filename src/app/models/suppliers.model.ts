@@ -1,4 +1,4 @@
-export class suppliers {
+export class Supplier {
     vatNumber?: number;
     name: string;
     country?: string;
