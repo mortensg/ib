@@ -1,3 +1,6 @@
+# To see what i made in the two hours time limit, go here:
+https://github.com/mortensg/ib/tree/04f6686fa9ddfaaa571e4ba828735a58fee568c8
+
 # Impactbuying
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
